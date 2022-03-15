@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       post :users, to: 'users#create'
       get :users, to: 'users#index'
       post :login, to: 'auth#create'
+      get 'character_list', to: 'disney#character_list'
+      # get 'character_detail/:id', to: 'disney#character_detail'
     end
   end
 end
