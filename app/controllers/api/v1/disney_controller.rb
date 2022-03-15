@@ -6,10 +6,10 @@ module Api
                 render json: json_structure_character_list(Character.get_all_characters())
             end
 
-            # def character_detail
-            #     character = Character.get_character_by_id(params[:id])
-            #     render json: character
-            # end
+            def character_detail
+                character = Character.get_character_by_id(params[:id])
+                render json: character_with_films(character)
+            end
 
             private
 
@@ -25,20 +25,13 @@ module Api
                 array
             end
 
-            # def json_structure_character_detail(characters)
-            #     array = []
-            #     characters.each do |character|
-            #         c = {}
-            #         c['id'] = character.id
-            #         c['image'] = character.image
-            #         c['name'] = character.name
-            #         c['age'] = character.age
-            #         c['weight'] = character.weight
-            #         c['history'] = character.history
-            #         array.push(c)
-            #     end
-            #     array
-            # end
+            def character_with_films(character)
+                c = {}
+                c['character'] = character
+                c['films'] = character.films
+                c
+            end
+
         end
     end
 end

@@ -5,4 +5,8 @@ class Character < ApplicationRecord
     def self.get_all_characters()
         Character.all
     end
+
+    def self.get_character_by_id(id)
+        Character.find(id)
+    end
 end
