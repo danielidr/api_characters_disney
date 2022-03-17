@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       post :login, to: 'auth#create'
       get 'character_list', to: 'disney#character_list'
       get 'character_detail/:id', to: 'disney#character_detail'
-
+      get 'characters', to: 'disney#character_by_query_params'
       resources :characters, only: [:create, :update, :destroy]
     end
   end

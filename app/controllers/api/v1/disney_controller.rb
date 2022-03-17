@@ -11,6 +11,21 @@ module Api
                 render json: character_with_films(character)
             end
 
+            def character_by_query_params
+                search = request.query_parameters
+                if search['name']
+                    render json: Character.get_character_by_name(search['name'])
+                elsif search['age']
+                    render json: Character.get_character_by_age(search['age'])
+                elsif search['weight']
+                    render json: Character.get_character_by_weight(search['weight'])
+                elsif search['movies']
+                    render json: Film.get_character_by_movie(search['movies'])
+                else
+                    render json: "No value to search"
+                end
+            end
+
             private
 
             def json_structure_character_list(characters)
