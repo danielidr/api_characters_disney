@@ -26,6 +26,10 @@ module Api
                 end
             end
 
+            def film_list
+                render json: json_structure_film_list(Film.get_all_films())
+            end
+
             private
 
             def json_structure_character_list(characters)
@@ -45,6 +49,18 @@ module Api
                 c['character'] = character
                 c['films'] = character.films
                 c
+            end
+
+            def json_structure_film_list(films)
+                array = []
+                films.each do |film|
+                    f = {}
+                    f['image'] = film.image
+                    f['title'] = film.title
+                    f['date_created'] = film.date_created
+                    array.push(f)
+                end
+                array
             end
 
         end
