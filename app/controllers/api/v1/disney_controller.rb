@@ -30,6 +30,11 @@ module Api
                 render json: json_structure_film_list(Film.get_all_films())
             end
 
+            def film_detail
+                film = Film.get_film_by_title(params[:title])
+                render json: films_with_characters(film)
+            end
+
             private
 
             def json_structure_character_list(characters)
@@ -61,6 +66,13 @@ module Api
                     array.push(f)
                 end
                 array
+            end
+
+            def films_with_characters(film)
+                f = {}
+                f['film'] = film
+                f['characters'] = film.characters
+                f
             end
 
         end

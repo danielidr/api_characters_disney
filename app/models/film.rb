@@ -9,6 +9,10 @@ class Film < ApplicationRecord
         Film.all
     end
 
+    def self.get_film_by_title(title)
+        Film.find_by(title: title)
+    end
+
     def self.get_film_by_id(id)
         Film.find(id)
     end

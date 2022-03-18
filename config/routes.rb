@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :characters, only: [:create, :update, :destroy]
 
       get 'movies', to: 'disney#film_list'
+      get 'movie_detail/:title', to: 'disney#film_detail'
     end
   end
 end
