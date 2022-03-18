@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
       get 'movies', to: 'disney#film_list'
       get 'movie_detail/:title', to: 'disney#film_detail'
+      resources :films, only: [:create, :update, :destroy]
     end
   end
 end
