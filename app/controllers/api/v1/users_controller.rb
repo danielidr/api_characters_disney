@@ -11,9 +11,10 @@ module Api
             def create
                 user = User.new(user_params)
                 if user.save
-                render json: user.as_json(json_options)
+                    render json: user.as_json(json_options)
+                    user.send_email
                 else
-                render json: { status: :bad, errors: user.errors.messages }
+                    render json: { status: :bad, errors: user.errors.messages }
                 end
             end
 
