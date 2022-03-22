@@ -5,8 +5,9 @@ class Film < ApplicationRecord
     validates :title, presence: true, uniqueness: true
     validates :score, numericality: { only_integer: true, greater_than: 0, less_than: 6 }
 
-    def self.get_all_films()
-        Film.all
+    def self.get_all_films(order)
+        order = order ? order : "DESC"
+        Film.all.order(date_created: order)
     end
 
     def self.get_film_by_title(title)

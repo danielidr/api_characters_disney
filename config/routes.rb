@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       get 'characters', to: 'disney#character_by_query_params'
       resources :characters, only: [:create, :update, :destroy]
 
-      get 'movies', to: 'disney#film_list'
       get 'movie_detail/:title', to: 'disney#film_detail'
+      get 'movies', to: 'disney#film_by_query_params'
       resources :films, only: [:create, :update, :destroy]
     end
   end

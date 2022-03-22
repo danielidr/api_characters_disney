@@ -26,13 +26,20 @@ module Api
                 end
             end
 
-            def film_list
-                render json: json_structure_film_list(Film.get_all_films())
-            end
-
             def film_detail
                 film = Film.get_film_by_title(params[:title])
                 render json: films_with_characters(film)
+            end
+
+            def film_by_query_params
+                search = request.query_parameters
+                if search['name']
+                    render json: Film.get_film_by_title(search['name'])
+                elsif search['genre']
+                    render json: Genre.get_film_by_genre(search['genre'])
+                else
+                    render json: json_structure_film_list(Film.get_all_films(search['order']))
+                end
             end
 
             private
