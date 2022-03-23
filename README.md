@@ -1,24 +1,13 @@
-# README
+## Disney Character Api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Es una API desarrollada para explorar el mundo de Disney, la cual permitirá conocer y modificar los personajes que lo componen y entender en qué películas estos participaron.
 
-Things you may want to cover:
+### Pre-requisitos
+Ruby `2.5.3`<br/>
+Rails `5.2.6`<br/>
 
-* Ruby version
+## Postman API Documentation
+https://documenter.getpostman.com/view/15052001/UVsSM338
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Implementation with Sendgrid
+Al registrarse en el sitio, el usuario recibirá un email de bienvenida.
